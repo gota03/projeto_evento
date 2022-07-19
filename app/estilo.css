@@ -1,0 +1,9 @@
+body{
+    background-image: url('https://cdn.pixabay.com/photo/2018/05/10/11/34/concert-3387324_960_720.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#campo{
+    background-color: #cba05a31;
+}

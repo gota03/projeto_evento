@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="cadastro.css">
+
+</head>
+<body>
+
+     <!-- TELA PARA CRIAR CONTA -->
+
+     <h1 class="text-center mt-4 text-white">
+
+         Crie sua conta aqui
+
+     </h1>
+
+     <hr>
+
+     <form action="">
+
+        <section class="col-md-6 col-sm-11 rounded mx-auto mt-4 mb-4 container-fluid" id="dados">
+
+            <section class="p-4">
+    
+                    <div class="row">
+    
+                        <div>
+    
+                            <label class="fs-3 fw-semibold text-white" for="nome">
+                                Nome <span id="asteriscoNome"></span>
+                            </label>
+    
+                            <input type="text" name="nome" id="nome" placeholder="Digite seu nome" class="form-control mt-2 border-dark p-2" required>
+    
+                        </div>
+    
+                        <div>
+    
+                            <label class="fs-3 mt-3 fw-semibold text-white" for="sobrenome">
+                                Sobrenome <span id="asteriscoSobreNome"></span>
+                            </label>
+    
+                            <input type="text" name="sobrenome" id="sobrenome" placeholder="Digite seu sobrenome" class="form-control mt-2 border-dark p-2" required>
+    
+                        </div>
+
+                        <div>
+
+                            <label for="dataEvento" class="form-label fs-3 mt-3 fw-semibold text-white">Data do evento</label>
+
+                            <input type="date" name="dataEvento" id="dataEvento" class="form-control mt-2 border-dark p-2" required>
+
+                        </div>
+    
+                        <div>
+    
+                            <label class="fs-3 mt-3 fw-semibold text-white" for="criarEmail">E-mail</label>
+    
+                            <input type="email" name="email" id="criarEmail" placeholder="Digite seu e-mail" class="form-control mt-2 border-dark p-2" required>
+    
+                        </div>
+    
+                        <div>
+    
+                            <label class="fs-3 mt-3 fw-semibold text-white" for="telefone">Telefone</label>
+    
+                            <input type="number" name="telefone" id="telefone" placeholder="Digite seu número de telefone" class="form-control border-dark p-2 mt-2" required>
+    
+                        </div>
+    
+                        <span id="msgTelefone"></span>
+    
+                        <div>
+    
+                            <label class="fs-3 fw-semibold mt-3 text-white" for="criarSenha">Criar senha</label>
+    
+                            <div class="input-group">
+    
+                                <input type="password" name="criarSenha" id="criarSenha" placeholder="Digite sua senha" class="form-control border-dark p-2 mt-2"  min="4" required>
+    
+                                <span class="material-symbols-outlined btn btn-dark mt-2 input-group-append">
+    
+                                    visibility_off
+    
+                                </span>
+    
+    
+                            </div>
+    
+                            
+                        </div>
+    
+                        <span id="msgSenhaCadastro"></span>
+    
+                        <button class="btn btn-success mt-4 col-6 mx-auto rounded p-2">
+    
+                            <a class="link-light text-decoration-none" href="index.html">CADASTRAR</a>
+        
+                        </button>
+    
+                    </div>
+    
+                </section>
+    
+        </section>    
+
+     </form>
+    
+    <script src="cadastro.js"></script>
+
+</body>
+</html>

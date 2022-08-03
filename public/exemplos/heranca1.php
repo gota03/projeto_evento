@@ -4,6 +4,7 @@ class Veiculo{
     private $marca;
     private $ligado = false;
     protected $nomeClasse; // SOMENTE AS CLASSES FILHAS PODERAM ACESSAR ESSE ATRIBUTO DIRETAMENTE
+    
 
     public function __construct($marca, $modelo){
         $this->marca = $marca;
@@ -38,6 +39,12 @@ class Veiculo{
 class Carro extends Veiculo {
     public function ligarParaBrisa(){
         echo "{$this->nomeClasse} ligou o parabrisa";
+    }
+}
+
+class Moto extends Veiculo{
+    public function ativarAntena(){
+       echo "{$this->nomeClasse} ativou a antena corta pipa";
     }
 }
 

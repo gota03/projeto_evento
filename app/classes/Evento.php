@@ -8,6 +8,11 @@ class Evento{
 
     //  CRIANDO METODOS(COMPORTAMENTOS)
 
+     /**
+      * @param $campos: ESTE PARAMETRO ESPERA RECEBER UMA CONSTANTE $_POST
+      * @param $arquivo: ESTE PARAMETRO ESPERA RECEBER UM VALOR COMO POR EXEMPLO $_FILES['banner']
+      */
+
     public function inicio($campos, $arquivo){
         // Verificar se os campos estão em branco
         if($this->recebeDados($campos)){
@@ -56,6 +61,7 @@ class Evento{
             return false;
         }
     }
+
      public function recebeDados($campos){
         $this->nomeEvento = $campos["nomeEvento"];
         $this->dataEvento = $campos["dataEvento"];

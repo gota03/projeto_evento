@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,13 +35,13 @@
 
                     <li class="nav-item">
 
-                        <a href="" class="nav-link">Eventos</a>
+                        <a href="" class="nav-link mt-1">Eventos</a>
 
                     </li>
 
                     <li class="nav-item">
 
-                        <a href="" class="nav-link">Logout</a>
+                        <a href="" class="nav-link mt-1">Logout</a>
 
                     </li>
 
@@ -55,11 +59,26 @@
 
     <main class="container-fluid">
 
-        <section class="col-md-6 col-sm-11 mx-auto mt-5 rounded mb-5" id="campo">
+        <?php
+            if(isset($_SESSION["mensagem"])){ // ISSET() VERIFICA SE ALGUMA VARIAVEL EXISTE
+                if($_SESSION["mensagem"] ["status"]){
+                    echo "
+                    <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                        <button type='button' class='btn-close' data-bs-dismiss='alert'> </button>
+                    </div>
+                    ";
+                }
+                else{
+                    
+                }
+            }
+        ?>
+
+        <section class="col-md-6 col-sm-11 mx-auto mt-5 rounded" id="campo">
 
             <div class="p-4">
     
-                <form action="../classes/Evento.php" enctype="multipart/form-data" method="POST">
+                <form action="../controller/EventoController.php" enctype="multipart/form-data" method="POST">
     
                     <section class="row">
     
@@ -67,7 +86,7 @@
     
                             <label class="fs-2 mt-4 fw-semibold text-light" for="email">Nome do evento</label>
     
-                            <input type="text" name="nomeEvento" id="nomeEvento" placeholder="Informe o seu email" class="form-control mt-2 p-2 border-dark">
+                            <input type="text" name="nomeEvento" id="nomeEvento" placeholder="Informe o nome do evento" class="form-control mt-2 p-2 border-dark">
     
                         </div>
 
@@ -93,17 +112,11 @@
     
                         <button class="btn btn-success mt-4 col-6 mx-auto p-2 rounded p-2">
     
-                            LOGIN
+                            CADASTRAR
     
                         </button>
     
                     </section>
-    
-                    <p class="text-center text-white mt-4 fw-bold fs-2">Não possui conta?
-    
-                        <a class="link-primary text-decoration-none" href="cadastro.html" id="criarConta">clique aqui para criar uma</a>
-    
-                    </p>
     
                 </form>
     

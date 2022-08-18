@@ -63,15 +63,22 @@ session_start();
             if(isset($_SESSION["mensagem"])){ // ISSET() VERIFICA SE ALGUMA VARIAVEL EXISTE
                 if($_SESSION["mensagem"] ["status"]){
                     echo "
-                    <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                    <div class='alert alert-success alert-dismissible fade show mt-3'>
+                        <h4 class='text-center'> {$_SESSION['mensagem'] ['msg']} </h4>
                         <button type='button' class='btn-close' data-bs-dismiss='alert'> </button>
                     </div>
                     ";
                 }
                 else{
-                    
+                    echo "
+                    <div class='alert alert-danger alert-dismissible fade show mt-3'>
+                        <h4 class='text-center'> {$_SESSION['mensagem'] ['msg']} </h4>
+                        <button type='button' class='btn-close' data-bs-dismiss='alert'> </button>
+                    </div>
+                    ";
                 }
             }
+            unset($_SESSION["mensagem"]); //  DESTRUINDO A VARIAVEL DE SESSÃO 
         ?>
 
         <section class="col-md-6 col-sm-11 mx-auto mt-5 rounded" id="campo">

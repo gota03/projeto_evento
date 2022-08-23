@@ -1,0 +1,24 @@
+<?php
+include_once("../includes/cabecalho.php");
+?>
+
+ <main class="container-fluid mt-5">
+
+    <section class="d-flex justify-content-between">
+
+        <h3 class="fw-bold">Gerenciamento de Eventos</h3>
+        <a href="CadastroView.php" class="btn btn-primary me-4">Criar Evento</a>
+
+    </section>
+
+    <section class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+    
+    
+    </section>
+
+ </main>
+
+ <?php
+    include_once("../includes/rodape.php");
+?>

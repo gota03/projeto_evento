@@ -42,7 +42,7 @@
     
                         <div class="mt-3">
     
-                            <label class="fs-2 mt-4 fw-semibold text-dark" for="email">Nome do evento</label>
+                            <label class="fs-2 mt-4 fw-semibold text-dark" for="nomeEvento">Nome do evento</label>
     
                             <input type="text" name="nomeEvento" id="nomeEvento" placeholder="Informe o nome do evento" class="form-control mt-2 p-2 border-dark">
     

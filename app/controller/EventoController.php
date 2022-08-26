@@ -15,8 +15,3 @@ if($_SESSION["mensagem"] ["status"]){
 
 header("Location:../view/CadastroView.php"); // REDIRECIONANDO O USUARIO PARA A PAGINA CADASTROVIEW.PHP
 die();
-/*
-print_r($_POST);
-echo "<hr>";
-print_r($_FILES);
-*/

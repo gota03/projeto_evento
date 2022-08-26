@@ -47,6 +47,21 @@ class EventoDAO{
             return false;
         }
     }
+
+    public function consultarUnico($id){
+        $sql = "SELECT * FROM {$this->tabela} WHERE id_evento = :id";
+        $preparacao = Conexao::getConexao()->prepare($sql);
+        $preparacao->bindValue(":id", $id);
+
+        $preparacao->execute();
+
+        if($preparacao->rowCount() > 0){
+            return $preparacao->fetchALL(PDO::FETCH_ASSOC);// o método fecthALL() retorna todos os registros do banco de dados e o valor PDO::FETCH_ASSOC, faz a associação do nome dos campos da tabela com os indices do vetor.
+        }
+        else{
+            return false;
+        }
+    }
     
     public function atualizar(){
 

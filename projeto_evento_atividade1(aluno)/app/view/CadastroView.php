@@ -1,3 +1,7 @@
+<?php
+include_once("../controller/EventoController.php")
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +42,9 @@
     <section class="row mt-5">        
         <div class="col-md-6 bg-dark text-white">
         <h3 class="text-center">Nível 1</h3>
-            
+            <?php
+                $_SESSION["arquivo"] = $arquivo->recebeArquivo($_FILES["banner"]); ;
+            ?>
         </div>
 
         <!-- NÍVEL 2 -->

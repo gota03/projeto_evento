@@ -1,37 +1,37 @@
 <?php
      include_once("../includes/cabecalho.php");
      require_once("../model/EventoDAO.php");
-     $id_evento = $_POST["id_evento"];
+     if(!isset($_SESSION["id_evento"])){
+        $_SESSION["id_evento"] = $_POST["id_evento"];
+     }
      $meuEventoDAO = new EventoDAO();
-     $resultado = $meuEventoDAO->consultarUnico($id_evento);
+     $resultado = $meuEventoDAO->consultarUnico($_SESSION["id_evento"]);
      $elemento = $resultado[0];
+
+     if(isset($_SESSION["atualizar"])){ // ISSET() VERIFICA SE ALGUMA VARIAVEL EXISTE
+        if($_SESSION["atualizar"] ["status"]){
+            echo "
+            <div class='alert alert-success alert-dismissible fade show mt-3'>
+                <h4 class='text-center'> {$_SESSION['atualizar'] ['msg']} </h4>
+                <button type='button' class='btn-close' data-bs-dismiss='alert'> </button>
+            </div>
+            ";
+        }
+        else{
+            echo "
+            <div class='alert alert-danger alert-dismissible fade show mt-3'>
+                <h4 class='text-center'> {$_SESSION['atualizar'] ['msg']} </h4>
+                <button type='button' class='btn-close' data-bs-dismiss='alert'> </button>
+            </div>
+            ";
+        }
+    }
+    unset($_SESSION["atualizar"]); //  DESTRUINDO A VARIAVEL DE SESSÃO 
 ?>
 
 <!-- TELA INICIAL DE LOGIN -->
 
     <main class="container-fluid">
-
-        <?php
-            if(isset($_SESSION["mensagem"])){ // ISSET() VERIFICA SE ALGUMA VARIAVEL EXISTE
-                if($_SESSION["mensagem"] ["status"]){
-                    echo "
-                    <div class='alert alert-success alert-dismissible fade show mt-3'>
-                        <h4 class='text-center'> {$_SESSION['mensagem'] ['msg']} </h4>
-                        <button type='button' class='btn-close' data-bs-dismiss='alert'> </button>
-                    </div>
-                    ";
-                }
-                else{
-                    echo "
-                    <div class='alert alert-danger alert-dismissible fade show mt-3'>
-                        <h4 class='text-center'> {$_SESSION['mensagem'] ['msg']} </h4>
-                        <button type='button' class='btn-close' data-bs-dismiss='alert'> </button>
-                    </div>
-                    ";
-                }
-            }
-            unset($_SESSION["mensagem"]); //  DESTRUINDO A VARIAVEL DE SESSÃO 
-        ?>
 
         <h1 class="text-center mt-4 fs-1 fw-bold">Atualizar Evento</h1>
 
@@ -72,10 +72,12 @@
                                 <input type="file" name="banner" id="banner" class="form-control mt-2 border-dark p-2" accept="image/*">
 
                         </div>
+
+                        <input type="hidden" name="atualizar" value="<?=$elemento['id_evento'] ?>">
     
                         <button class="btn btn-success mt-4 col-6 mx-auto p-2 rounded p-2">
     
-                            CADASTRAR
+                            ATUALIZAR
     
                         </button>
     

@@ -47,7 +47,7 @@
                         <!-- O CAMPO HIDDEN IRA ARMAZENAR DE FORMA OCULTA O ID DE CADA ITEM DO BANCO DE DADOS -->
                         <input type="hidden" name="id_evento" value="<?=$elemento["id_evento"]?>"> 
 
-                        <button type="submit" class="btn btn-danger text-light col-5 d-flex justify-content-between align-items-center">
+                        <button type="button" class="btn btn-danger text-light col-5 d-flex justify-content-between align-items-center">
                         EXCLUIR <span class="material-symbols-outlined ms-2">delete</span>
                         </button>
                     

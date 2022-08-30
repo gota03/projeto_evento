@@ -67,6 +67,8 @@
                                 <input type="file" name="banner" id="banner" class="form-control mt-2 border-dark p-2" accept="image/*">
 
                         </div>
+
+                        <input type="hidden" name="cadastrar">
     
                         <button class="btn btn-success mt-4 col-6 mx-auto p-2 rounded p-2">
     

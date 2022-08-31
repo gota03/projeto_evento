@@ -3,6 +3,8 @@
     require_once("../model/EventoDAO.php");
 
     $meuEventoDAO = new EventoDAO();
+
+    unset($_SESSION["id_evento"]); // ESTAMOS DESTRUINDO A VARIAVEL DE SESSAO QUE ESTA SENDO CRIADA NA PAGINA NA EVENTOVIEW DE FORMA QUE OUTROS VALORES POSSAM SER ATRIBUIDOS A
 ?>
 
  <main class="container-fluid mt-5">

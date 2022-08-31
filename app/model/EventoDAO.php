@@ -74,7 +74,7 @@ class EventoDAO{
         $preparacao->bindValue(":nome", $evento->nomeEvento);
         $preparacao->bindValue(":dataEvento", $evento->dataEvento);
         $preparacao->bindValue(":foto", $evento->banner);
-        $preparacao->bindValue(":id_evento", $id);
+        $preparacao->bindValue(":id", $id);
         
         $preparacao->execute();
 

@@ -49,7 +49,7 @@
                         <!-- O CAMPO HIDDEN IRA ARMAZENAR DE FORMA OCULTA O ID DE CADA ITEM DO BANCO DE DADOS -->
                         <input type="hidden" name="id_evento" value="<?=$elemento["id_evento"]?>"> 
 
-                        <button type="button" class="btn btn-danger text-light col-5 d-flex justify-content-between align-items-center">
+                        <button type="button" class="btn btn-danger text-light col-5 d-flex justify-content-between align-items-center excluir" data-bs-toggle="modal" data-bs-target="#modalExcluir" id="<?=$elemento["id_evento"]?>">
                         EXCLUIR <span class="material-symbols-outlined ms-2">delete</span>
                         </button>
                     
@@ -69,6 +69,48 @@
     </section>
 
  </main>
+
+ <!-- MODAL PARA EXCLUIR -->
+
+<section class="modal fade" id="modalExcluir">
+
+        <div class="modal-dialog modal-dialog-centered">
+        
+                <div class="modal-content">
+                
+                        <div class="modal-header">
+                        
+                            <h5 class="modal-title">ATENÇÃO</h5>
+
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                        
+                        </div>
+
+                        <form action="../controller/EventoController.php" method="post">
+                        
+                                <div class="modal-body">
+                                
+                                    Tem certeza que deseja excluir esse evento?
+
+                                    <input type="hidden" name="excluir" id="excluirEvento">
+                                
+                                </div>
+
+                                <div class="modal-footer">
+                                
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>
+
+                                    <button type="submit" class="btn btn-danger" id="confirmar">CONFIRMAR</button>
+
+                                </div>
+
+                        </form>
+
+                </div>
+
+        </div>
+
+</section> 
 
 <?php
     include_once("../includes/rodape.php");

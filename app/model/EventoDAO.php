@@ -86,7 +86,20 @@ class EventoDAO{
         }
     }
 
-    public function deletar(){
+    public function deletar($id){
+        $sql = "DELETE FROM {$this->tabela} WHERE id_evento = :id";
+
+        $preparacao = Conexao::getConexao()->prepare($sql);
+
+        $preparacao->bindValue(":id", $id);
+
+        $preparacao->execute();
+        if($preparacao->rowCount() > 0){
+            return true;// o método fecthALL() retorna todos os registros do banco de dados e o valor PDO::FETCH_ASSOC, faz a associação do nome dos campos da tabela com os indices do vetor.
+        }
+        else{
+            return false;
+        }
 
     }
 }

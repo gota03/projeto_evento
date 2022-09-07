@@ -41,7 +41,7 @@ session_start();
 
                     <li class="nav-item">
 
-                        <a href="" class="nav-link mt-1">Logout</a>
+                        <a href="../controller/Logout.php" class="nav-link mt-1">Logout</a>
 
                     </li>
 

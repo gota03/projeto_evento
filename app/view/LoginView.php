@@ -18,24 +18,41 @@ $loginDAO = new LoginDAO();
 
     <?php
         if(isset($_SESSION["mensagem"])){
-                foreach($loginDAO->consultarUnico($_POST["email"], $_POST["senha"]) as $elemento){
-                    if($elemento["tipo_usuario"] == 1){
-                        echo "vc é admin";
+            if($_SESSION["mensagem"]){
+
+                if(isset($_SESSION["dados"])){
+                    if(isset($_SESSION["admin"])){
+                        // echo "<div>você é admin</div>";
+                        header("Location: ../view/VisualizarEventoView.php");
                     }
-                    else{
+                    else if(isset($_SESSION["user"])){
                         
+                        header("Location: ../view/VisualizarEventoView.php");
+                    }   
+                    else if(isset($_SESSION["erro"])){
                         echo "
-                    <div class='alert alert-danger alert-dismissible fade show mt-3'>
-                        <h4 class='text-center'> Preencha os campos de email e senha </h4>
+                        <div class='alert alert-danger alert-dismissible fade show mt-3'>
+                        <h4 class='text-center'>{$_SESSION['erro']} </h4>
                         <button type='button' class='btn-close' data-bs-dismiss='alert'> </button>
-                    </div>
-                    ";
+                            </div>
+                        ";
                     }
-            
+                }
+            }
+            else{
+                    echo "
+                    <div class='alert alert-danger alert-dismissible fade show mt-3'>
+                    <h4 class='text-center'> Preencha os campos de email e senha </h4>
+                    <button type='button' class='btn-close' data-bs-dismiss='alert'> </button>
+                        </div>
+                    ";
+                }
+                
         }
-    }
-        
         unset($_SESSION["mensagem"]);
+        unset($_SESSION["admin"]);
+        unset($_SESSION["user"]);
+
     ?>
 
     <h1 class="text-center mt-3">Eventos</h1>

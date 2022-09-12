@@ -7,6 +7,7 @@ class LoginDAO{
     public function consultarUnico($email, $senha){
         $sql = "SELECT * FROM {$this->tabela} WHERE email = :email AND senha = :senha";
         $preparacao = LoginConsulta::getLogin()->prepare($sql);
+        
         $preparacao->bindValue(":email", $email);
         $preparacao->bindValue(":senha", $senha);
 

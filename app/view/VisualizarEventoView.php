@@ -42,26 +42,8 @@
 
                     <form action="AtualizarEventoView.php" method="post" class="d-flex justify-content-around">
                         <?php
-                            if($_SESSION["tipoUsuario"] == 2):
-                        ?>
-                        <button type="submit" class="btn btn-info text-light col-5 d-flex justify-content-between align-items-center d-none">
-                        EDITAR <span class="material-symbols-outlined">edit</span>
-                        </button>
-
-                        <!-- O CAMPO HIDDEN IRA ARMAZENAR DE FORMA OCULTA O ID DE CADA ITEM DO BANCO DE DADOS -->
-                        <input type="hidden" name="id_evento" value="<?=$elemento["id_evento"]?>"> 
-
-                        <a href="">Acessar Evento</a>
-                        
-                        <button type="button" class="btn btn-danger text-light col-5 d-flex justify-content-between align-items-center excluir d-none" data-bs-toggle="modal" data-bs-target="#modalExcluir" id="<?=$elemento["id_evento"]?>">
-                        EXCLUIR <span class="material-symbols-outlined ms-2">delete</span>
-                        </button>
-                        <?php
-                            endif;
                             if($_SESSION["tipoUsuario"] == 1):
                         ?>
-
-
                         <button type="submit" class="btn btn-info text-light col-5 d-flex justify-content-between align-items-center">
                         EDITAR <span class="material-symbols-outlined">edit</span>
                         </button>
@@ -69,13 +51,16 @@
                         <!-- O CAMPO HIDDEN IRA ARMAZENAR DE FORMA OCULTA O ID DE CADA ITEM DO BANCO DE DADOS -->
                         <input type="hidden" name="id_evento" value="<?=$elemento["id_evento"]?>"> 
                         
-                        <button type="button" class="btn btn-danger text-light col-5 d-flex justify-content-between align-items-center excluir " data-bs-toggle="modal" data-bs-target="#modalExcluir" id="<?=$elemento["id_evento"]?>">
+                        <button type="button" class="btn btn-danger text-light col-5 d-flex justify-content-between align-items-center excluir" data-bs-toggle="modal" data-bs-target="#modalExcluir" id="<?=$elemento["id_evento"]?>">
                         EXCLUIR <span class="material-symbols-outlined ms-2">delete</span>
                         </button>
-
                         <?php
                             endif;
                         ?>
+
+
+                
+
                     </form>
                         
                 </div>

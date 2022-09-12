@@ -9,10 +9,10 @@ if(!isset($_SESSION["mensagem"])){
     $_SESSION["mensagem"] = $login->validaCampos($_POST);
     if($_SESSION["mensagem"]){
         if($_SESSION["dados"] = $loginDAO->consultarUnico($_POST["email"], $_POST["senha"])){
-            echo "<pre>";
-            print_r($_SESSION["dados"]);
-            // echo $_SESSION["dados"][0];
-            echo "</pre>";
+            // echo "<pre>";
+            // print_r($_SESSION["dados"]);
+            // // echo $_SESSION["dados"][0];
+            // echo "</pre>";
             $receberUsuario = $_SESSION["dados"][0]["tipo_usuario"];
             $_SESSION["tipoUsuario"] = $_SESSION["dados"][0]["tipo_usuario"];
             if($receberUsuario == 1){
@@ -30,15 +30,10 @@ if(!isset($_SESSION["mensagem"])){
             
         }
         else{
-            $_SESSION["erro"] = "Os registros não batem com o banco";
-        }
-        
-        
-    }
-    
-    
+            $_SESSION["erro"] = "Dados não encontrados no banco";
+        }   
+    }   
 }
-
 
 header("Location:../view/LoginView.php");
 die();

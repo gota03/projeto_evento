@@ -21,14 +21,12 @@ $loginDAO = new LoginDAO();
             if($_SESSION["mensagem"]){
 
                 if(isset($_SESSION["dados"])){
-                    if(isset($_SESSION["admin"])){
+                    if(isset($_SESSION["admin"]) || isset($_SESSION["user"])){
                         // echo "<div>você é admin</div>";
                         header("Location: ../view/VisualizarEventoView.php");
+                        die();
                     }
-                    else if(isset($_SESSION["user"])){
-                        
-                        header("Location: ../view/VisualizarEventoView.php");
-                    }   
+                      
                     else if(isset($_SESSION["erro"])){
                         echo "
                         <div class='alert alert-danger alert-dismissible fade show mt-3'>
@@ -71,8 +69,16 @@ $loginDAO = new LoginDAO();
 
                 <label for="senha" class="mt-2 fw-semibold">Senha</label>
 
+                <div class="input-group">
+                
                 <input type="password" name="senha" id="senha" class="form-control border-dark mt-2" placeholder="Senha">
-       
+
+                <span class="material-symbols-outlined input-group-append btn btn-dark mt-2">
+                        visibility_off
+                </span>
+                
+                </div>
+
                 <button type="submit" class="btn btn-secondary mt-3 p-2 col-12 mx-auto">ENTRAR</button>
                
             </form>
@@ -81,6 +87,7 @@ $loginDAO = new LoginDAO();
 
     </main>
 
+<script src="../js/senha.js"></script>
 
 <?php
 include_once("../includes/rodape.php");
